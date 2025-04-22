@@ -1,0 +1,27 @@
+# version: '3.4'
+
+services:
+  reactapp:
+    pull_policy: build
+    build:
+      context: ./vite-project
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000
+  api:
+    pull_policy: build
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    environment:
+      MYSQL_HOST: localhost
+      MYSQL_USER: root
+      MYSQL_PASSWORD: COSC4343
+      MYSQL_USERS_DB: users
+    ports:
+      - 3636:3636
+
+
+
