@@ -35,7 +35,10 @@ $stmt->execute([$username, $password]);
 $user = $stmt->fetch();
 
 if ($user) {
-    echo "Welcome, " . htmlspecialchars($username) . "!";
+    $_SESSION['username'] = $username;
+    $_SESSION['clearance'] = $user['clearance'];
+    header("Location: dashboard.php");
+    exit();
 } else {
     echo "Invalid credentials. <a href='index.php'>Try again</a>";
 }
