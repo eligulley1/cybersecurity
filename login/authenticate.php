@@ -2,9 +2,9 @@
 session_start();
 
 // CAPTCHA check
-if ($_POST["captcha"] !== $_SESSION["captcha"]) {
-    die("CAPTCHA failed. <a href='index.php'>Try again</a>");
-}
+// if ($_POST["captcha"] !== $_SESSION["captcha"]) {
+//     die("CAPTCHA failed. <a href='index.php'>Try again</a>");
+// }
 
 // Database connection
 $host = 'localhost';
