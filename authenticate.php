@@ -5,11 +5,12 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
+// Load environment variables
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 // CAPTCHA verification
-$secretKey = $_ENV['RECAPTCHA_SECRET_KEY'];
+$secretKey = $_ENV['RECAPTCHA_SECRET_KEY']; // Load from .env
 $responseKey = $_POST['g-recaptcha-response'];
 $userIP = $_SERVER['REMOTE_ADDR'];
 
@@ -22,11 +23,11 @@ if (!$responseData->success) {
     die("The reCAPTCHA wasn't entered correctly. Go back and try again.");
 }
 
-// Database credentials
-$host = 'localhost';
-$db   = 'users';
-$user = 'root';
-$pass = $_ENV['DB_PASSWORD']; // Load from .env
+// Auth logic
+$host = $_ENV['DB_HOST'];       // Load from .env
+$db   = $_ENV['DB_NAME'];       // Load from .env
+$user = $_ENV['DB_USER'];       // Load from .env
+$pass = $_ENV['DB_PASSWORD'];   // Load from .env
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
