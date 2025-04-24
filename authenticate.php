@@ -24,10 +24,10 @@ if (!$responseData->success) {
 }
 
 // Auth logic
-$host = $_ENV['DB_HOST'];       // Load from .env
-$db   = $_ENV['DB_NAME'];       // Load from .env
-$user = $_ENV['DB_USER'];       // Load from .env
-$pass = $_ENV['DB_PASSWORD'];   // Load from .env
+$host = $_ENV['DB_HOST'];       
+$db   = $_ENV['DB_NAME'];       
+$user = $_ENV['DB_USER'];      
+$pass = $_ENV['DB_PASSWORD'];   
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
