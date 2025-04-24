@@ -31,4 +31,9 @@ if ($clearance === 'T') {
 }
 
 echo "</div>";
+
+echo "<form method='POST' action='logout.php' style='margin-top:20px;'>
+        <button type='submit'>Logout</button>
+      </form>";
+
 ?>
