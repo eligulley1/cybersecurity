@@ -2,22 +2,20 @@
 session_start();
 
 // CAPTCHA verification
-require_once('recaptchalib.php');
-$privatekey = "6LccMCMrAAAAAH0vb8WGiFPZVQ9LZ6xnG_gbw9gi"; // Replace with your actual private key
-$resp = recaptcha_check_answer(
-    $privatekey,
-    $_SERVER["REMOTE_ADDR"],
-    $_POST["recaptcha_challenge_field"],
-    $_POST["recaptcha_response_field"]
-);
+$secretKey = "6LccMCMrAAAAAH0vb8WGiFPZVQ9LZ6xnG_gbw9gi"; // Replace with your actual secret key
+$responseKey = $_POST['g-recaptcha-response'];
+$userIP = $_SERVER['REMOTE_ADDR'];
 
-if (!$resp->is_valid) {
-    // What happens when the CAPTCHA was entered incorrectly
-    die("The reCAPTCHA wasn't entered correctly. Go back and try it again. " .
-        "(reCAPTCHA said: " . $resp->error . ")");
+// Verify the CAPTCHA response with Google's API
+$verifyURL = "https://www.google.com/recaptcha/api/siteverify";
+$response = file_get_contents($verifyURL . "?secret=" . $secretKey . "&response=" . $responseKey . "&remoteip=" . $userIP);
+$responseData = json_decode($response);
+
+if (!$responseData->success) {
+    die("The reCAPTCHA wasn't entered correctly. Go back and try again.");
 }
 
-// Database connection
+// Proceed with the rest of your authentication logic
 $host = 'localhost';
 $db   = 'users';
 $user = 'root';
