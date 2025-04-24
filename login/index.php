@@ -13,10 +13,15 @@
         <label>Password:</label><br>
         <input type="password" name="password" required><br><br>
 
-<!--         <label>Enter CAPTCHA:</label><br>
-        <img src="captcha.php" alt="CAPTCHA"><br>
-        <input type="text" name="captcha" required><br><br> -->
-
+        <form method="post" action="verify.php">
+            <?php
+              require_once('recaptchalib.php');
+              $publickey = "6LccMCMrAAAAAMzo1mC9zvQfgmm6AOhiaO1Pfo8p"; // you got this from the signup page
+              echo recaptcha_get_html($publickey);
+            ?>
+            <input type="submit" />
+        </form>
+        
         <input type="submit" value="Sign In">
     </form>
 </body>
