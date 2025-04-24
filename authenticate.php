@@ -15,7 +15,7 @@ if (!$responseData->success) {
     die("The reCAPTCHA wasn't entered correctly. Go back and try again.");
 }
 
-// Proceed with the rest of your authentication logic
+// Auth logic
 $host = 'localhost';
 $db   = 'users';
 $user = 'root';
@@ -34,7 +34,7 @@ try {
     die("Database connection failed.");
 }
 
-// Hash the password using MD5
+// Hash entered password
 $username = $_POST['username'];
 $password = md5($_POST['password']);
 
