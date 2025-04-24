@@ -1,8 +1,15 @@
 <?php
 session_start();
 
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 // CAPTCHA verification
-$secretKey = "6LcJNiMrAAAAANGxFIGhiIQoc9cOGl-0vDhnheYw"; // Replace with your actual secret key
+$secretKey = $_ENV['RECAPTCHA_SECRET_KEY'];
 $responseKey = $_POST['g-recaptcha-response'];
 $userIP = $_SERVER['REMOTE_ADDR'];
 
@@ -15,11 +22,11 @@ if (!$responseData->success) {
     die("The reCAPTCHA wasn't entered correctly. Go back and try again.");
 }
 
-// Auth logic
+// Database credentials
 $host = 'localhost';
 $db   = 'users';
 $user = 'root';
-$pass = 'COSC4343';
+$pass = $_ENV['DB_PASSWORD']; // Load from .env
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
