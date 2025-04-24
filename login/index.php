@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>User Login</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <h2>Login</h2>
