@@ -13,8 +13,7 @@
 
         <label>Password:</label><br>
         <input type="password" name="password" required><br><br>
-        
-        <!-- CAPTCHA Integration -->
+        <br>
         <!-- CAPTCHA Integration -->
         <div class="g-recaptcha" data-sitekey="6LcJNiMrAAAAAHIalDNYplffJD5oTXr1xDR0B74s"></div>
         <br><br>
