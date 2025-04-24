@@ -16,7 +16,7 @@
         
         <!-- CAPTCHA Integration -->
         <!-- CAPTCHA Integration -->
-        <div class="g-recaptcha" data-sitekey="6LccMCMrAAAAAMzo1mC9zvQfgmm6AOhiaO1Pfo8p"></div>
+        <div class="g-recaptcha" data-sitekey="6LcJNiMrAAAAAHIalDNYplffJD5oTXr1xDR0B74s"></div>
         <br><br>
         
         <input type="submit" value="Sign In">

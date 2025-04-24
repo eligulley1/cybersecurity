@@ -2,7 +2,7 @@
 session_start();
 
 // CAPTCHA verification
-$secretKey = "6LccMCMrAAAAAH0vb8WGiFPZVQ9LZ6xnG_gbw9gi"; // Replace with your actual secret key
+$secretKey = "6LcJNiMrAAAAANGxFIGhiIQoc9cOGl-0vDhnheYw"; // Replace with your actual secret key
 $responseKey = $_POST['g-recaptcha-response'];
 $userIP = $_SERVER['REMOTE_ADDR'];
 
