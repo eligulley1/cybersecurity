@@ -2,7 +2,7 @@
 session_start();
 
 // CAPTCHA verification
-require_once('recaptchalib.php');
+require_once('/recaptcha-php-1.10/recaptchalib.php');
 $privatekey = "6LccMCMrAAAAAH0vb8WGiFPZVQ9LZ6xnG_gbw9gi"; // Replace with your actual private key
 $resp = recaptcha_check_answer(
     $privatekey,

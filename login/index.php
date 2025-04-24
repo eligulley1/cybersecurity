@@ -15,7 +15,7 @@
         
         <!-- CAPTCHA Integration -->
         <?php
-          require_once('recaptchalib.php');
+          require_once('/recaptcha-php-1.10/recaptchalib.php');
           $publickey = "6LccMCMrAAAAAMzo1mC9zvQfgmm6AOhiaO1Pfo8p"; // Replace with your actual public key
           echo recaptcha_get_html($publickey);
         ?>
